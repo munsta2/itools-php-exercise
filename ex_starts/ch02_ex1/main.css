@@ -33,3 +33,8 @@ label {
 br {
     clear: left;
 }
+
+.error {
+    color: red;
+    font-weight: bold;
+}
