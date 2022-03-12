@@ -1,0 +1,1 @@
+SELECT productName, description, listPrice FROM products order BY listPrice
