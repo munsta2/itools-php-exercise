@@ -34,12 +34,24 @@
         include('index.php');
         exit();
     }
-
-    // calculate the future value
-    $future_value = $investment;
-    for ($i = 1; $i <= $years; $i++) {
-        $future_value += $future_value * $interest_rate *.01;
+    $monthly_or_yearly = "";
+    if (isset($_POST['monthly'])) {
+        $future_value = $investment;
+        $monthly_or_yearly = "Compounded Monthly";
+        $months = $years * 12;
+        for ($i = 1; $i <= $months; $i++) {
+            $future_value += $future_value * $interest_rate *.01;
+        }
+    } 
+    else {
+        $monthly_or_yearly = "Compounded Yearly";
+        $future_value = $investment;
+        for ($i = 1; $i <= $years; $i++) {
+            $future_value += $future_value * $interest_rate *.01;
+        }
     }
+    // calculate the future value
+    
 
     // apply currency and percent formatting
     $investment_f = '$'.number_format($investment, 2);
@@ -67,6 +79,8 @@
 
         <label>Future Value:</label>
         <span><?php echo $future_value_f; ?></span><br>
+
+        <?php echo $monthly_or_yearly?>
     </main>
 </body>
 </html>

@@ -20,19 +20,30 @@
     <form action="display_results.php" method="post">
 
         <div id="data">
-            <label>Investment Amount:</label>
-            <input type="text" name="investment"
-                   value="<?php echo $investment; ?>"/><br>
+        <label>Investment Amount:</label>
+        <select name="investment">
+            <?php for ($v = 10000; $v <= 50000; $v+=5000) : ?>
+                <option value="<?php echo $v; ?>">
+                    <?php echo $v; ?>
+                </option>
+            <?php endfor; ?>
+        </select><br/>
 
-            <label>Yearly Interest Rate:</label>
-            <input type="text" name="interest_rate"
-                   value="<?php echo $interest_rate; ?>"/><br>
+        <label>Interest Rate:</label>
+        <select name="interest_rate">
+            <?php for ($v = 4; $v <= 12; $v+=.5) : ?>
+                <option value="<?php echo $v; ?>">
+                    <?php echo $v; ?>
+                </option>
+            <?php endfor; ?>
+        </select><br/>
 
             <label>Number of Years:</label>
             <input type="text" name="years"
                    value="<?php echo $years; ?>"/><br>
         </div>
 
+        <input type="checkbox" name="monthly">Compound Interest Monthly<br>
         <div id="buttons">
             <label>&nbsp;</label>
             <input type="submit" value="Calculate"/><br>
