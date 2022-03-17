@@ -12,6 +12,14 @@ $statement->execute();
 $customer_info = $statement->fetchAll();
 $statement->closeCursor();
 
+$query2 = 'SELECT * FROM countries';
+$statements = $db->prepare($query2);
+$statements->execute();
+$countries = $statements->fetchAll();
+$statements->closeCursor();
+
+
+    
 ?>
 <head>
     <link rel="stylesheet" href="customer_select.css">
@@ -44,7 +52,27 @@ $statement->closeCursor();
             <input type="text" name="postal" value='<?php echo $customer_info[0]['postalCode']?>'><br>
 
             <label>Country Code:</label>
-            <input type="text" name="country" value='<?php echo $customer_info[0]['countryCode']?>'><br>
+            
+                <select name="country">
+                <?php foreach ($countries as $country) : ?>
+
+                    <?php if($country['countryCode'] == $customer_info[0]['countryCode']) : ?>
+                        <option value="<?php echo $country['countryCode'] ?>" selected="selected"> 
+                        <?php echo $country['countryName'] ?>
+
+                    </option>
+                    
+                    <?php else : ?>
+                        <option value="<?php echo $country['countryCode'] ?>">
+                        <?php echo $country['countryName'] ?>
+                    </option>
+                    <?php endif; ?>
+                    
+                    <?php endforeach; ?>
+                </select>
+
+               <br>
+           
 
 
             <label>Phone</label>
