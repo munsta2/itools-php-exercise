@@ -5,8 +5,6 @@ $code = filter_input(INPUT_POST, 'code');
 $name = filter_input(INPUT_POST, 'name');
 $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
 $product_id = filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);
-echo $product_id;
-echo $category_id;
 
 // Validate inputs
 if ($category_id == null || $category_id == false ||

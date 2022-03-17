@@ -1,0 +1,19 @@
+.add_tech {
+    margin: .5em 0 1em;
+}
+.add_tech label {
+    width: 7em;
+    padding-right: 1em;
+    padding-bottom: .5em;
+    float: left;
+}
+.add_tech input {
+    float: left;
+}
+.add_tech input[text] {
+    width: 15em;
+}
+#long {
+    width: 12em;
+    padding-left: 1em;
+}

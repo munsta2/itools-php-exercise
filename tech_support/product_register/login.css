@@ -1,0 +1,19 @@
+.login {
+    margin: .5em 0 1em;
+}
+.login label {
+    width: 7em;
+    padding-right: 1em;
+    padding-bottom: .5em;
+    float: left;
+}
+.login input {
+    float: left;
+}
+.login input[text] {
+    width: 15em;
+}
+#long {
+    width: 12em;
+    padding-left: 1em;
+}

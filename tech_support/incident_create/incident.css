@@ -1,0 +1,19 @@
+.incident {
+    margin: .5em 0 1em;
+}
+.incident label {
+    width: 7em;
+    padding-right: 1em;
+    padding-bottom: .5em;
+    float: left;
+}
+.incident input {
+    float: left;
+}
+.incident input[text] {
+    width: 15em;
+}
+#long {
+    width: 12em;
+    padding-left: 1em;
+}
