@@ -40,6 +40,7 @@ $statement2->closeCursor();
 <p>you must login before you can register a product</p>
     <form action="Registered.php" method="post"
                class="login">
+               <input type="hidden" name="id" value="<?php echo $customer[0]["customerID"]?>">
             <label>Customer:</label>
             <?php echo $customer[0]['firstName']." ".$customer[0]['lastName'];?>
             <br>
