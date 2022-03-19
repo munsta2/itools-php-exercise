@@ -20,14 +20,13 @@ switch ($action) {
 
         // validate the scores
         // TODO: Convert this if statement to a for loop
-        if (empty($scores[0]) ||
-            empty($scores[1]) ||
-            empty($scores[2]) ||
-            !is_numeric($scores[0]) ||
-            !is_numeric($scores[1]) ||
-            !is_numeric($scores[2])) {
+
+   
+        for($i = 0; $i < count($scores);  $i++) {
+            if(empty($scores[$i]) || !is_numeric($scores[$i])) {
                 $scores_string = 'You must enter three valid numbers for scores.';
-                break;
+                break 2;
+            }
         }
 
         // process the scores
@@ -35,6 +34,7 @@ switch ($action) {
         $scores_string = '';
         foreach ($scores as $s) {
             $scores_string .= $s . '|';
+            $score_total += $s;
         }
         $scores_string = substr($scores_string, 0, strlen($scores_string)-1);
 
@@ -55,13 +55,13 @@ switch ($action) {
         $max_rolls = -INF;
 
         // TODO: convert this while loop to a for loop
-        while ($count < 10000) {
+        for($count = 0 ; $count < 1000 ; $count++) {
             $rolls = 1;
             while (mt_rand(1, 6) != $number_to_roll) {
                 $rolls++;
             }
             $total += $rolls;
-            $count++;
+           
             $max_rolls = max($rolls, $max_rolls);
         }
         $average_rolls = $total / $count;
