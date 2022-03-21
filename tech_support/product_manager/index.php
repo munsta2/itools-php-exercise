@@ -44,7 +44,13 @@ $statement3->closeCursor();
                 <td><?php echo $product['productCode']; ?></td>
                 <td><?php echo $product['name']; ?></td>
                 <td class="right"><?php echo $product['version']; ?></td>
-                <td><?php echo $product['releaseDate']; ?></td>
+                <td><?php 
+                $date_obj = new DateTime($product['releaseDate']);
+                $format = 'n-j-Y';
+                $date = $date_obj->format($format);
+                $product['releaseDate'] = $date;
+                echo $product['releaseDate'];   
+                ?></td>
                 <td><form action="delete_product.php" method="post">
                     <input type="hidden" name="product_id"
                            value="<?php echo $product['productCode']; ?>">

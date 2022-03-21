@@ -9,6 +9,21 @@ if ($code == null || $name == null || $version == null || $date == null) {
     $error_message = "Invalid product data. Check all fields and try again.";
     include('../errors/database_error.php');
 } else {
+
+
+  //  $test = new DateTime($date);
+
+    try {
+        $date_obj = new DateTime($date);
+    } catch (Exception $e) {
+        $error_message = "Invalid date";
+        include('../errors/database_error.php');
+        exit();
+    }
+
+     $format = 'Y-m-d';
+    $date = $date_obj->format($format);
+
     require_once('../model/database.php');
     $query = 'INSERT INTO products
                  (productCode, name, version, releaseDate)
