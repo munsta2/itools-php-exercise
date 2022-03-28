@@ -19,7 +19,7 @@
 
             <label>Release Date:</label> 
             <input type="text" name="time">
-            <label id="long">use 'yyyy-mm-dd' format</label>
+            <label id="long">use any valid date format</label>
             
             <br>
 

@@ -1,3 +1,5 @@
+
+   
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,8 @@
     </header>
 
     <main>
-        
+        <!-- display contents of an array in the browser -->
+        <p><?php print_r($task_list); ?></p>
         <!-- part 1: the errors -->
         <?php if (count($errors) > 0) : ?>
         <h2>Errors:</h2>
@@ -44,6 +47,20 @@
             <input type="text" name="newtask" id="newtask"> <br>
             <label>&nbsp;</label>
             <input type="submit" name="action" value="Add Task">
+            
+            
+        </form>
+        <br>
+
+        <!-- part 3.5: remove from list -->
+        <h2>Remove Task:</h2>
+        <form action="." method="post" >
+            <?php foreach( $task_list as $task ) : ?>
+              <input type="hidden" name="tasklist[]" value="<?php echo $task; ?>">
+            <?php endforeach; ?>
+            <input type="submit" name="action" value="Remove Task">
+            
+            
         </form>
         <br>
 
@@ -68,7 +85,7 @@
             <input type="submit" name="action" value="Promote Task">
             <input type="submit" name="action" value="Delete Task">
 
-            <br><br>
+            <br>
             <label>&nbsp;</label>
             <input type="submit" name="action" value="Sort Tasks">
         </form>
