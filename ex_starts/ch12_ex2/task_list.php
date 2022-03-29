@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Task List Manager</title>
-    <link rel="stylesheet" type="text/css" href="main.css"/>
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
     <header>
@@ -35,12 +35,9 @@
         <!-- part 3: the add form -->
         <h2>Add Task</h2>
         <form action="." method="post" >
-            <?php foreach($task_list as $task) : ?>
-              <input type="hidden" name="tasklist[]" value="<?php echo $task; ?>">
-            <?php endforeach; ?>
             <input type="hidden" name="action" value="add">
             <label>Task:</label>
-            <input type="text" name="newtask" id="newtask" > <br>
+            <input type="text" name="newtask" id="newtask"><br>
             <label>&nbsp;</label>
             <input type="submit" value="Add Task">
         </form>
@@ -50,9 +47,6 @@
         <?php if (count($task_list) > 0) : ?>
         <h2>Delete Task</h2>
         <form action="." method="post" >
-            <?php foreach($task_list as $task) : ?>
-              <input type="hidden" name="tasklist[]" value="<?php echo $task; ?>">
-            <?php endforeach; ?>
             <input type="hidden" name="action" value="delete">
             <label>Task:</label>
             <select name="taskid">
