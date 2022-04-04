@@ -6,7 +6,11 @@ session_set_cookie_params($lifetime, '/');
 session_start();
 
 // Create a cart array if needed
-if (empty($_SESSION['cart13'])) $_SESSION['cart13'] = array();
+if (empty($_SESSION['cart13'])) {
+    $cart = array();
+} else {
+    $cart = $_SESSION['cart13'];
+}
 
 // Create a table of products
 $products = array();
@@ -31,17 +35,19 @@ switch($action) {
     case 'add':
         $key = filter_input(INPUT_POST, 'productkey');
         $quantity = filter_input(INPUT_POST, 'itemqty');
-        add_item($key, $quantity);
+        karwaski\cart\add_item($cart, $key, $quantity);
+        $_SESSION['cart13'] = $cart;
         include('cart_view.php');
         break;
     case 'update':
         $new_qty_list = filter_input(INPUT_POST, 'newqty', 
                 FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
         foreach($new_qty_list as $key => $qty) {
-            if ($_SESSION['cart13'][$key]['qty'] != $qty) {
-                update_item($key, $qty);
+            if ($cart[$key]['qty'] != $qty) {
+                karwaski\cart\update_item($cart, $key, $qty);
             }
         }
+        $_SESSION['cart13'] = $cart;
         include('cart_view.php');
         break;
     case 'show_cart':
@@ -51,6 +57,7 @@ switch($action) {
         include('add_item_view.php');
         break;
     case 'empty_cart':
+        $_SESSION['cart13'] = $cart;
         unset($_SESSION['cart13']);
         include('cart_view.php');
         break;
