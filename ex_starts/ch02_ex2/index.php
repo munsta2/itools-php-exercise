@@ -1,4 +1,7 @@
 <?php 
+
+    require_once('functions.php');
+
     //set default value of variables for initial page load
     if (!isset($investment)) { $investment = ''; } 
     if (!isset($interest_rate)) { $interest_rate = ''; } 
@@ -39,16 +42,14 @@
         }
 
         // calculate the future value
-        $future_value = $investment;
-        for ($i = 1; $i <= $years; $i++) {
-            $future_value += $future_value * $interest_rate * .01; 
-        }
+        $future_value = future_value($investment,$years,$interest_rate);
 
         // apply currency and percent formatting
-        $investment_f = '$'.number_format($investment, 2);
-        $yearly_rate_f = $interest_rate.'%';
-        $future_value_f = '$'.number_format($future_value, 2);
+        $investment_f = apply_currency_formant($investment);
 
+        $future_value_f = apply_currency_formant($future_value);
+
+        $yearly_rate_f = apply_percent_formant($interest_rate);
         //date
         $date = date('d/m/Y');
         
