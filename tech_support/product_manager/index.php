@@ -1,71 +1,52 @@
 <?php
 require('../model/database.php');
-include '../view/header.php';
-// require('../model/product_db.php');
+require('../model/product_db.php');
 
-// $action = filter_input(INPUT_POST, 'action');
-// if ($action === NULL) {
-//     $action = filter_input(INPUT_GET, 'action');
-//     if ($action === NULL) {
-//         $action = 'under_construction';
-//     }
-// }
+if (isset($_POST['action'])) {
+    $action = $_POST['action'];
+} else if (isset($_GET['action'])) {
+    $action = $_GET['action'];
+} else {
+    $action = 'show_products';
+}
 
-// if ($action == 'under_construction') {
-//     include('../under_construction.php');
-// }
+if ($action == 'under_construction') {
+    include('../under_construction.php');
+}
+else if ($action == 'show_products') {
+    $products = get_products();
+    include('show_products.php');
+}
+else if ($action == 'delete_product') {
+    $product_code = $_POST['product_code'];
+    delete_product($product_code);
+    header("Location: .");
+}
+else if ($action == 'add_product') {
+    $product_code = $_POST['product_code'];
+    $name = $_POST['name'];
+    $version = $_POST['version'];
+    $release_date = $_POST['release_date'];
+    
+    if (empty($product_code) || empty($name) || empty($version) 
+            || empty($release_date)) {
+        $error = 'Please make sure all fields are entered correctly.';
+        include('../errors/error.php');
+    }
+    else {
 
-$queryProducts = 'SELECT * FROM products';
-$statement3 = $db->prepare($queryProducts);
-
-$statement3->execute();
-$products = $statement3->fetchAll();
-$statement3->closeCursor();
-
-
-
-
+        try {
+            $date_obj = new DateTime($date);
+        } catch (Exception $e) {
+            $error_message = "Invalid date";
+            include('../errors/database_error.php');
+            exit();
+        }
+        $format = 'Y-m-d';
+        $date = $date_obj->format($format);
+        echo gettype($date);
+        add_product($product_code, $name, $version, $release_date);
+        header("Location: .");
+    }
+}
 ?>
-
-<main>
-
-
-<table>
-            <tr>
-                <th>Code</th>
-                <th>Name</th>
-                <th>Version</th>
-                <th>Realse Date</th>
-                <th>&nbsp;</th>
-            </tr>
-
-            <?php foreach ($products as $product) : ?>
-            <tr>
-                <td><?php echo $product['productCode']; ?></td>
-                <td><?php echo $product['name']; ?></td>
-                <td class="right"><?php echo $product['version']; ?></td>
-                <td><?php 
-                $date_obj = new DateTime($product['releaseDate']);
-                $format = 'n-j-Y';
-                $date = $date_obj->format($format);
-                $product['releaseDate'] = $date;
-                echo $product['releaseDate'];   
-                ?></td>
-                <td><form action="delete_product.php" method="post">
-                    <input type="hidden" name="product_id"
-                           value="<?php echo $product['productCode']; ?>">
-                   
-                    <input type="submit" value="Delete">
-                </form></td>
-                
-            </tr>
-            <?php endforeach; ?>
-            
-        </table>
-        <p><a href="add_product_form.php">Add Product</a></p>
-
-
-
-</main>
-
-<?php include '../view/footer.php'; ?>

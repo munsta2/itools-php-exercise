@@ -3,29 +3,25 @@
     <link rel="stylesheet" href="product.css">
 </head>
 <main>
-<form action="add_product.php" method="post"
-               class="add_product_form">
+<form action='.' method='post' class='add_product_form'>
+            <input type='hidden' name='action' value='add_product' />
 
-            
-
-            <label>Code:</label>
-            <input type="text" name="code"><br>
-
-            <label>Name:</label>
-            <input type="text" name="name"><br>
-
-            <label>Version:</label>
-            <input type="text" name="version"><br>
-
-            <label>Release Date:</label> 
-            <input type="text" name="time">
-            <label id="long">use any valid date format</label>
-            
-            <br>
-
-            <label>&nbsp;</label>
-            <input type="submit" value="Add Product"><br>
+            <label>Product Code</label>
+            <input type='text' name='product_code' />
+            <br />
+            <label>Name</label>
+            <input type='text' name='name' />
+            <br />
+            <label>Version</label>
+            <input type='text' name='version' />
+            <br />
+            <label>Release Date</label>
+            <input type='text' name='release_date' />
+            <em>Use any valid date format.</em>
+            <br />
+            <input type='Submit' value='Add Product' />
         </form>
+        <br>
         <p><a href="index.php">View Product List</a></p>
 </main>
 
