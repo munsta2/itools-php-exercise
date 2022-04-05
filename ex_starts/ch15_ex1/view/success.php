@@ -12,6 +12,7 @@
         <li>State: <?php echo htmlspecialchars($state); ?></li>
         <li>ZIP: <?php echo htmlspecialchars($zip); ?></li>
         <li>Phone: <?php echo htmlspecialchars($phone); ?></li>
+        <li>Birthdate: <?php echo htmlspecialchars($birthdate); ?></li>
         <li>Card Type: <?php echo htmlspecialchars($cardType); ?></li>
         <li>Card Number: <?php echo htmlspecialchars($cardNumber); ?></li>
         <li>Expiration: <?php echo htmlspecialchars($expDate); ?></li>
