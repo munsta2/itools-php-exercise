@@ -27,7 +27,7 @@ else if ($action == 'add_product') {
     $name = $_POST['name'];
     $version = $_POST['version'];
     $release_date = $_POST['release_date'];
-    
+   
     if (empty($product_code) || empty($name) || empty($version) 
             || empty($release_date)) {
         $error = 'Please make sure all fields are entered correctly.';
@@ -36,7 +36,7 @@ else if ($action == 'add_product') {
     else {
 
         try {
-            $date_obj = new DateTime($date);
+            $date_obj = new DateTime($release_date);
         } catch (Exception $e) {
             $error_message = "Invalid date";
             include('../errors/database_error.php');
@@ -44,9 +44,17 @@ else if ($action == 'add_product') {
         }
         $format = 'Y-m-d';
         $date = $date_obj->format($format);
-        echo gettype($date);
-        add_product($product_code, $name, $version, $release_date);
-        header("Location: .");
+        try{
+            add_product($product_code, $name, $version, $release_date);
+            header("Location: .");
+        } catch (TypeError $e) {
+            $error = $e;
+           include('../errors/error.php');
+           exit();
+           
+        }
+        
+        
     }
 }
 ?>
