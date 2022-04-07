@@ -13,7 +13,7 @@
 <body>
 <header>
 
-    <img src="images/cropped-NFC-logo.png" alt="">
+    <img src="/itools_project_Jesse_Karwaski/images/cropped-NFC-logo.png" alt="">
 
     <h1>Northern Football Confrence</h1>
     <h2>Football is better in the North</h2>
@@ -22,8 +22,8 @@
 
 <nav id="nav_menu">
         <ul>
-            <li ><a href=".">Home</a></li>
-            <li><a href="">Teams</a>
+            <li ><a href="/itools_project_Jesse_Karwaski/index.php">Home</a></li>
+            <li><a href="/itools_project_Jesse_Karwaski/teams_manager">Teams</a>
 				<ul>
                     <li><a href="">Edit teams</a></li>
                     

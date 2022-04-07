@@ -22,20 +22,24 @@ CREATE TABLE teams (
     teamID  int NOT NULL AUTO_INCREMENT,
     name    VARCHAR(40)    NOT NULL,
     city VARCHAR(40) NOT NULL,
+    imagePath VARCHAR(80) null,
     PRIMARY KEY (teamID)
 );
 
 INSERT INTO teams VALUES 
-(1, 'Spartans', 'Sudbury'),
-(2, 'Bulldogs', 'North Bay'),
-(3, 'Steelers', 'Sault ste maire'),
-(4, 'All-Stars', 'Gta'),
-(5, 'Longorns', 'Oakvile'),
-(6, 'Imperials', 'Sarnia'),
-(7, 'Sooners', 'Ottawa'),
-(8, 'Phantom Raiders', 'Toronto'),
-(9, 'Outlaws', 'Tri-City'),
-(10,'Patriots', 'Hamilton');
+(1, 'Spartans', 'Sudbury', '/itools_project_Jesse_Karwaski/images/Spartans-logo.webp'),
+(2, 'Bulldogs', 'North Bay','/itools_project_Jesse_Karwaski/images/Bulldog-logo.webp'),
+(3, 'Steelers', 'Sault ste maire','/itools_project_Jesse_Karwaski/images/steelers-1.webp'),
+(4, 'All-Stars', 'Gta','/itools_project_Jesse_Karwaski/images/gtastars.logo_.webp'),
+(5, 'Longorns', 'Oakvile','/itools_project_Jesse_Karwaski/images/longhorns.webp'),
+(6, 'Imperials', 'Sarnia','/itools_project_Jesse_Karwaski/images/Sarnia-Imperials-Logo-crown-CL.webp'),
+(7, 'Sooners', 'Ottawa','/itools_project_Jesse_Karwaski/images/ottawa-sooners-logo.webp'),
+(8, 'Phantom Raiders', 'Toronto','/itools_project_Jesse_Karwaski/images/Raiders.webp'),
+(9, 'Outlaws', 'Tri-City','/itools_project_Jesse_Karwaski/images/Tricity_outlaws_logo.webp'),
+(10,'Patriots', 'Hamilton','/itools_project_Jesse_Karwaski/images/SCP-New.webp');
+
+
+
 
 CREATE TABLE players (
     playerID int NOT NULL AUTO_INCREMENT,
@@ -44,7 +48,7 @@ CREATE TABLE players (
     lname VARCHAR(40) NOT NULL,
     position VARCHAR(3)    NOT NULL,
     height int NOT NULL,
-    weught int NOT NULL,
+    weight int NOT NULL,
     primary key (playerID),
     FOREIGN KEY (teamID) REFERENCES teams(teamID)
 

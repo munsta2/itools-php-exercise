@@ -1,0 +1,34 @@
+main {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 120%;
+}
+
+label, input[type="submit"],select {
+    font-size: 120%;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #001963;
+    border-collapse: collapse;
+    background-color: white;
+}
+td, th {
+    border: 1px dashed #001963;
+    padding: .2em .5em .2em .5em;
+    text-align: left;
+}
+#no_border {
+    border: 0px;
+}
+#no_border td {
+    border: 0px;
+}
+
+td img {
+    width: 128px;
+    height: 128px;
+}
