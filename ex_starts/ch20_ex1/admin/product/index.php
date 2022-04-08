@@ -101,5 +101,38 @@ switch ($action) {
             include('product_view.php');
         }
         break;
+
+        case 'list_categories':
+            $categories = get_categories();
+            include('category_list.php');
+            break;
+     
+            //add caetgories
+        case 'add_category':
+            $name = filter_input(INPUT_POST, 'name');
+     
+            // Validate inputs
+            if ($name === NULL) {
+                $error = "Invalid category name. Check name and try again.";
+                include('view/error.php');
+            } else {
+                add_category($name);
+                header('Location: .?action=list_categories');
+            }
+            break;
+            
+            //deletes categogires
+        case 'delete_category':
+            $category_id = filter_input(INPUT_POST, 'category_id',
+                    FILTER_VALIDATE_INT);
+     
+            $product_count = get_product_count($category_id);
+            if ($product_count > 0) {
+                display_db_error("This category can't be deleted because it contains products.");
+            } else {
+                delete_category($category_id);
+                header('Location: .?action=list_categories');
+            }
+            break;
 }
 ?>

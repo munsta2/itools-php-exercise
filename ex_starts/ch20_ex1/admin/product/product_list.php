@@ -21,8 +21,9 @@
     <?php endif; ?>
 
     <h2>Links</h2>
-    <p class="last_paragraph">
-        <a href="index.php?action=show_add_edit_form">Add Product</a>
+    <a href="index.php?action=show_add_edit_form">Add Product</a>
+        <p class="last_paragraph">
+            <a href="index.php?action=list_categories">List Categories</a>
     </p>
 </section>
 <?php include '../../view/footer.php'; ?>
