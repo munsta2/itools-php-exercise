@@ -11,13 +11,13 @@
         <li><a href="technician_manager">Manage Technicians</a></li>
         <li><a href="customer_manager">Manage Customers</a></li>
         <li><a href="incident_create">Create Incident</a></li>
-        <li><a href="under_construction.php">Assign Incident</a></li>
-        <li><a href="under_construction.php">Display Incidents</a></li>
+        <li><a href="assign_incident_manager">Assign Incident</a></li>
+        <li><a href="display_incident/unassigned.php">Display Incidents</a></li>
     </ul>
 
     <h2>Technicians</h2>    
     <ul>
-        <li><a href="under_construction.php">Update Incident</a></li>
+        <li><a href="incident_update">Update Incident</a></li>
     </ul>
 
     <h2>Customers</h2>

@@ -3,11 +3,10 @@
     <link rel="stylesheet" href="customer_select.css">
 </head>
 <main>
+    <?php echo $condition ?>
+    <h1>Add/Update Customer</h1>
         <form action='.' method='post' class='select_form'>
-            <input type='hidden' name='action'
-                   value='update_customer' />
-            <input type='hidden' name='customerID' 
-                   value='<?php echo $customerID; ?>' />
+            
           
                    <label>First Name:</label>
         <input type="text" name="first_name" 
@@ -68,9 +67,22 @@
         <input type="text" name="password" 
                value="<?php echo htmlspecialchars($password);?>">
         <?php echo $fields->getField('password')->getHTML(); ?><br>
+          
 
+            <input type='hidden' name='action'
+                   value='update_customer' />
+            <input type='hidden' name='customerID' 
+                   value='<?php echo $customerID; ?>' />
 
-            <input type='submit' value='Update Customer' />
+            <?php if($condition == "new"): ?>
+                <input type='submit' value='Add Customer' />
+                <input type='hidden' name='condition' value='new' />
+            <?php else: ?>
+                <input type='submit' value='Update Customer' />
+                <input type='hidden' name='condition' value='update' />
+
+            <?php endif; ?>
+        
         </form>
 
     <br />

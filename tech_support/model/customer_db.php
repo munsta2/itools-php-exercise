@@ -77,4 +77,26 @@ function update_customer($customerID, $first_name, $last_name,
         $error_message = $e->getMessage();
         display_db_error($error_message);
     }
+
+
 }
+
+function add_customer($customerID, $first_name, $last_name, 
+    $address, $city, $state, $postal_code, $country_code,
+    $phone, $email, $password) {
+
+        global $db;
+
+        $query = "INSERT INTO customers VALUES
+            ('$customerID','$first_name','$last_name', '$address', '$city', '$state','$postal_code','$country_code','$phone','$email','$password')";
+
+        try{
+            $statement = $db->prepare($query);
+            $statement->execute();
+        } catch(PDOException $e) {
+            $error_message = $e->getMessage();
+            display_db_error($error_message);
+        }
+}
+
+?>

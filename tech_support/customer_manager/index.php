@@ -49,6 +49,7 @@ else if ($action == 'select_customer') {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $countries = get_countries();
+    $condition =  $_POST['condition'];
     include("edit_customer.php");
 }
 
@@ -78,14 +79,41 @@ else if ($action == 'update_customer') {
 
     if ($fields->hasErrors()) {
    
+        $condition = $_POST['condition'];
         $countries = get_countries();
         include("edit_customer.php");
     } else {
-        update_customer($customerID, $first_name, $last_name, $address,
+        $condition = $_POST['condition'];
+
+        if( $condition == 'new') { 
+            add_customer($customerID, $first_name, $last_name, $address,
             $city, $state, $postal_code, $country_code, $phone,
             $email, $password);
+        } else {
+            update_customer($customerID, $first_name, $last_name, $address,
+            $city, $state, $postal_code, $country_code, $phone,
+            $email, $password);
+        }
+
+        
     include("Blank.php");
     }
-
-    
 }
+else if ($action == "add_customer") {
+    $customerID = "";
+    $first_name ="";
+    $last_name ="";
+    $address = "";
+    $city = "";
+    $state ="";
+    $postal_code = "";
+    $country_code ="";
+    $phone = "";
+    $email = "";
+    $password ="";
+    $countries = get_countries();
+    $condition = $_POST['condition'];
+    include("edit_customer.php");
+}
+
+?>

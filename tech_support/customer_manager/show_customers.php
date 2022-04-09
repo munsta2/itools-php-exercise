@@ -29,6 +29,7 @@
                     <form action='.' method='post'>
                         <input type='hidden' name='action'
                                value='select_customer' />
+                     <input type="hidden" name="condition" value='update'>
                         <input type='hidden' name='customerID' 
                                value='<?php echo $customer['customerID']; ?>' />
                         <input type='hidden' name='first_name'

@@ -74,7 +74,7 @@ class Validate {
          
     }
 
-    public function email($name, $value, $required = true, $min = 1,  $max = 1) {
+    public function email($name, $value, $required = true, $min = 1,  $max = 21) {
         $field = $this->fields->getField($name);
 
 
