@@ -4,8 +4,16 @@ function get_customers() {
     global $db;
     $query = "SELECT * FROM customers
               ORDER BY lastName";
-    $customers = $db->query($query);
-    return $customers;
+   
+    try{
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $customers = $statement->fetchAll();
+        return $customers;
+    } catch(PDOException $e) {
+        $error_message = $e->getMessage();
+        display_db_error($error_message);
+    }
 }
 
 function search_by_last_name($last_name) {
@@ -13,8 +21,16 @@ function search_by_last_name($last_name) {
     $query = "SELECT * FROM customers
               WHERE lastName='$last_name'
               ORDER BY firstName";
-    $customers = $db->query($query);
-    return $customers;
+   
+    try{
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $customers = $statement->fetchAll();
+        return $customers;
+    } catch(PDOException $e) {
+        $error_message = $e->getMessage();
+        display_db_error($error_message);
+    }
 }
 
 function search_by_email($email) {
@@ -22,9 +38,17 @@ function search_by_email($email) {
     $query = "SELECT * FROM customers
               WHERE email='$email'
               ORDER BY firstName";
-    $customers = $db->query($query);
-    $customer = $customers->fetch();
-    return $customer;
+    
+    try{
+        $statement = $db->prepare($query);
+        $statement->execute();
+        
+        $customer = $statement->fetch();
+        return $customer;
+    } catch(PDOException $e) {
+        $error_message = $e->getMessage();
+        display_db_error($error_message);
+    }
 }
 
 function update_customer($customerID, $first_name, $last_name, 
@@ -44,5 +68,13 @@ function update_customer($customerID, $first_name, $last_name,
               email = '$email',
               password = '$password'
               WHERE customerID = '$customerID'";
-    $db->exec($query);
+   
+
+    try{
+        $statement = $db->prepare($query);
+        $statement->execute();
+    } catch(PDOException $e) {
+        $error_message = $e->getMessage();
+        display_db_error($error_message);
+    }
 }
