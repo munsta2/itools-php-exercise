@@ -1,11 +1,17 @@
 <?php
-require('../model/database.php');
+require_once('../model/database.php');
 require('../model/incidents_db.php');
 require('../model/customer_db.php');
 require('../model/technician.php');
 require('../model/technician_db.php');
-session_start();
+
 $action = filter_input(INPUT_POST, 'action');
+
+if ($action == "login attempt") {
+    $action = 'show_update_incident';
+}
+
+
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
     if ($action == NULL) {        
@@ -16,7 +22,7 @@ if ($action == NULL) {
         }
     }
 }
-
+echo $action;
 switch($action) {
     case 'view_login':
         $email = '';

@@ -1,4 +1,22 @@
 <?php
+function is_valid_customer_login($email, $password) {
+    global $db;
+    $query = '
+        SELECT * FROM customers
+        WHERE email = :email AND password = :password';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':email', $email);
+    $statement->bindValue(':password', $password);
+    $statement->execute();
+    if ($statement->rowCount() == 1) {
+        $valid = true;
+    } else {
+        $valid = false;
+    }
+    $statement->closeCursor();
+    return $valid;
+}
+
 
 function get_customers() {
     global $db;

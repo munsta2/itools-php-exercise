@@ -7,13 +7,13 @@
     <form action='.' method='post' class='login'>
       
                 <label>Customer: </label>
-                <?php echo $customer[0]['firstName'] . ' ' . $customer[0]['lastName']; ?>
+                <?php echo $customer['firstName'] . ' ' . $customer['lastName']; ?>
                 <br>
                 <label>Product:</label>
         
     
               
-                <?php $_SESSION['customerID'] = $customer[0]['customerID']; ?>
+                <?php $_SESSION['customerID'] = $customer['customerID']; ?>
                 <select name='productCode'>
                     <?php foreach($products as $product) : ?>
                     <option value='<?php echo $product['productCode']; ?>'>

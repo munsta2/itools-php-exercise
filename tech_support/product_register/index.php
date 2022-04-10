@@ -1,5 +1,8 @@
 <?php
 require("../model/database.php");
+require("../model/customer_db.php");
+require("../model/product_db.php");
+
 
 
 $lifetime = 60 * 60 * 24 * 365 *3; //seconds in 3 yrs
@@ -25,25 +28,25 @@ switch($action) {
         include('login.php');
         break;
     case 'verify_email':
-        if(!isSet($_SESSION['email'])) {
-            $_SESSION['email'] = $_POST['email'];
+
+
+        $flag = is_valid_customer_login($_POST['email'], $_POST['password']);
+
+        if ($flag == 1) {
+            
+            $customer = search_by_email($_POST['email']);
+            $_SESSION['email'] = $customer['email'];
+            $products = get_products();
+            include('register_product.php');
+            break;
+        } else {
+            include('login.php');
+            break;
         }
-        $email = $_SESSION['email'];
-        $query = 'SELECT * FROM customers where email = :email';
-        $statement = $db->prepare($query);
-        $statement->bindValue(':email', $email);
-        $statement->execute();
-        $customer = $statement->fetchAll();
-        $statement->closeCursor();
 
-        $query2 = "SELECT name, productCode from products";
 
-        $statement2 = $db->prepare($query2);
-        $statement2->execute();
-        $products = $statement2->fetchAll();
-        $statement2->closeCursor();
-        include('register_product.php');
-        break;
+     
+        
     case 'register_product':
         if(!isSet($_SESSION['customerID'])) {
             $_SESSION['customerID'] = $_POST['customerID'];
