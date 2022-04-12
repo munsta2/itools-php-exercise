@@ -25,11 +25,12 @@
             <li ><a href="/itools_project_Jesse_Karwaski/index.php">Home</a></li>
             <li><a href="/itools_project_Jesse_Karwaski/teams_manager">Teams</a>
 				<ul>
-                    <li><a href="">Edit teams</a></li>
+                    <li><a href="">View Schedule</a></li>
                     
                 </ul>
 			</li>
             <li><a href="">About us</a></li>
+            <li><a href="/itools_project_Jesse_Karwaski/admin_manager">Admin Login</a></li>
             
 
         </ul>

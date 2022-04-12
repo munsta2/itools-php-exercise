@@ -1,24 +1,37 @@
 <?php 
-
+require_once('database.php');
 
 function get_team(int $teamID) {
     global $db;
     $query = "SELECT *  FROM teams where teamID = $teamID";
-    $statement = $db->prepare($query);
-    $statement->execute();
-    $team = $statement->fetchAll();
-    $statement->closeCursor();
-    return $team;
+
+    try{
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $team = $statement->fetchAll();
+        $statement->closeCursor();
+        return $team;
+    } catch(PDOException $e) {
+        $error_message = $e->getMessage();
+        display_db_error($error_message);
+    }
 }
 
 function get_teams() {
     global $db;
     $query = "SELECT * FROM teams";
-    $statement = $db->prepare($query);
-    $statement->execute();
-    $teams = $statement->fetchAll();
-    $statement->closeCursor();
-    return $teams;
+  
+    try{
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $teams = $statement->fetchAll();
+        $statement->closeCursor();
+        return $teams;
+    } catch(PDOException $e) {
+        $error_message = $e->getMessage();
+        display_db_error($error_message);
+    }
+    
 }
 function get_team_with_stats(int $teamID) {
     global $db;
@@ -92,20 +105,35 @@ function update_team_stats() {
      
 
         }
-        // TODO TASK
-        //         
-        // implement the udpating of the teams stats function for next next session.
-        // 
-
-        echo "wins ".$wins."[".$idNum."]";
-        echo '<br>';
-        echo "lose ".$lose."[".$idNum."]";
-        echo '<br>';
-        echo '<br>';
+        helper($wins, $lose, $pointAgint, $pointfor, $points, $idNum);
+       
 
     }
 
     
+}
+
+function helper(int $wins, int $lose, int $pointAgint, int $pointfor, int $points, int $idNum){
+    global $db;
+    $query2 = "UPDATE team_stats
+        SET
+        wins = $wins, 
+        loses = $lose,
+        pointsAgaints = $pointAgint,
+        pointsFor = $pointfor,
+        points = $points
+        WHERE teamID = $idNum 
+    ";
+
+    try{
+        $statement2 = $db->prepare($query2);
+        $statement2->execute();
+    } catch(PDOException $e) {
+        $error_message = $e->getMessage();
+        display_db_error($error_message);
+    }
+
+
 }
 
 

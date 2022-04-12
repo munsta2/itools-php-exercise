@@ -1,13 +1,17 @@
-main {
+ main {
     text-align: center;
     padding-top: 50px;
     padding-bottom: 50px;
     font-size: 120%;
-}
-
-label, input[type="submit"],select {
+} 
+ label, input[type="submit"],select, input[type="text"] {
     font-size: 120%;
 }
+input[type="text"] {
+    width: 5em;
+} 
+
+
 
 table {
     margin-left: auto;

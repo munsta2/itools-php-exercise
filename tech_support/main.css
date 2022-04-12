@@ -82,11 +82,14 @@ nav ul li {
 a {
     color: #3333CC;
     font-weight: bold;
+    font-size: 120%;
+    text-align: center;
 
 }
 a:hover {
-    color: #3333CC;
+    color: #cacad3;
 }
+
 
 table {
     border: 1px solid #001963;

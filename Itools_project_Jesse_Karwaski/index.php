@@ -1,9 +1,10 @@
-
 <?php include_once 'view/header.php';
 require('model/database.php');
 require("model/teams_db_functions.php");
+//require("errors/database_error.php");
 
-$ids = update_team_stats();
+update_team_stats();
+
 $images = array("images/roll2.jpg", "images/roll3.jpg", "images/roll4.jpg");
 
 
@@ -16,8 +17,9 @@ $images = array("images/roll2.jpg", "images/roll3.jpg", "images/roll4.jpg");
     <link rel="stylesheet" type="text/css"href="css/main.css">
 </head>
 <main>
-  
-
+  <br>
+  <h1 style="text-align: center">Players in Action!</h1>
+   <br>
 <div class="slideshow-container">
 <?php $i = 1;?>
 <?php foreach ($images as $image) : ?>
