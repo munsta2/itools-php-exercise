@@ -1,0 +1,29 @@
+.add_game_form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+.add_game_form label {
+  
+    width: 7.5em;
+    padding-right: 1em;
+    padding-bottom: .5em;
+    float: left;
+    margin-left: 3em;
+}
+
+.add_game_form input {
+    float: left;
+}
+
+label, input[type="text"]  {
+    font-size: 120%;
+    width: 7em;
+}
+
+.add_game_form input[type="submit"] {
+    /* margin-left: 3em; */
+    font-size: 120%;
+    width: 7.5em;
+}

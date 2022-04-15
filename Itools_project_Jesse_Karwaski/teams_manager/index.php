@@ -2,6 +2,7 @@
 
 require('../model/database.php');
 require('../model/teams_db_functions.php');
+require('../model/games_db.php');
 
 
 if (isset($_POST['action'])) {
@@ -26,6 +27,7 @@ switch ($action) {
         break;
     case 'show players':
         $team_id = filter_input(INPUT_POST, 'team_id');
+        $team_logo = get_image_path($team_id );
         $player_array = get_players($team_id);
         include('show_players.php');
         break;

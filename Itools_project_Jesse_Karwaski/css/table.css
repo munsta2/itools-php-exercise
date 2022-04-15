@@ -1,0 +1,83 @@
+main {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 120%;
+} 
+ label, input[type="submit"],select, input[type="text"] {
+    font-size: 120%;
+}
+input[type="text"] {
+    width: 5em;
+} 
+
+
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid #000000;
+    border-collapse: collapse;
+    background-color: rgb(179, 155, 155);
+    width: 600px;
+}
+td, th {
+    border: 2px solid #000000;
+    padding: .2em .5em .2em .5em;
+    font-weight: bold;
+}
+#no_border {
+    border: 0px;
+}
+#no_border td {
+    border: 0px;
+}
+
+td img {
+    width: 128px;
+    height: 128px;
+}
+
+.centerAlign  { 
+    text-align: center;
+}
+
+thead {
+    
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size:120%;
+}
+thead td {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.center {
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+
+
+  .small { 
+      height: 32px;
+      width: 32px;
+  }
+
+  .banner { 
+      background-color: #ff8108;
+  }
+
+  .subBanner { 
+      font-size: 80%;
+      padding-top: 1em;
+      padding-bottom: 1em;
+  }
+
+  .standings { 
+      margin-top: 3em;
+      width: 400px;
+  }

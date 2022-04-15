@@ -83,7 +83,7 @@ class Validate {
         }
     }
 
-    public function valid_number($name, $val, $required = true) { 
+    public function valid_number($name,$val, $required = true) { 
         $field = $this->fields->getField($name);
       
         if (!$required && empty($value)) {
@@ -93,10 +93,11 @@ class Validate {
 
         $this->text($name, $val, $required);
 
-
+        
+     
         if ($field->hasError()) { return; }
-
-        if (gettype($val) == 'interger' || gettype($val) == 'double') {
+       
+        if (is_numeric($val)) {
             $field->clearErrorMessage();
 
         }else{
@@ -108,6 +109,27 @@ class Validate {
 
     }
    
+    public function date($name, $value, $required = true) {
+        $field = $this->fields->getField($name);
+
+        // Call the text method and exit if it yields an error
+        $this->text($name, $value, $required);
+        if ($field->hasError()) { return; }
+
+
+        // Call the pattern method to validate a date
+        $pattern = '/^(0?[1-9]|1[0-2])\/(0?[1-9]|[12][[:digit:]]|3[01])\/[[:digit:]]{4}$/';
+        $message = 'Invalid date format.';
+        $this->pattern($name, $value, $pattern, $message, $required);
+
+        $birthdate = new \DateTime($value);
+        // $now = new \DateTime();
+        // if ($birthdate > $now) {
+        //     $field->setErrorMessage('Birthdate cannot be day ahead.');
+        //     return;
+        // }
+        
+    }
 
 
 

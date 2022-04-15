@@ -1,7 +1,7 @@
 <?php include('../view/header.php'); ?>
 
 <head>
-    <link rel="stylesheet" href="../teams_manager/teams.css">
+    <link rel="stylesheet" href="../css/table.css">
 </head>
 <main>
     <form action='.' method="post">
@@ -54,6 +54,8 @@
             </tr>
         <?php endforeach; ?>
     </table>
+            <br>
+    <a href="../admin_manager/">Back to Admin menu</a>
         </main>
 
 <?php include('../view/footer.php'); ?>

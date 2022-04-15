@@ -1,12 +1,12 @@
 <?php include("../view/header.php"); ?>
 <head>
-    <link rel="stylesheet" href="edit.css">
+    <link rel="stylesheet" href="../edit_player_manager/edit.css">
 </head>
 
 <main>
 
 
-    <h1>Edit Player</h1>
+    <h1>Add Player</h1>
         <form action='.' method='post' class="select_form" >
             
 
@@ -44,31 +44,20 @@
         <br>
     
 
-            <label>Team</label>
-            <select name="team_id">
-                <?php foreach ($teams as $team): ?>
-                <?php if($teamID == $team['teamID']): ?>
-                <option value="<?php echo $team['teamID']; ?>" selected>
-                    <?php echo $team['name']; ?>
-                </option>
-                <?php else: ?>
-                <option value="<?php echo $team['teamID']; ?>" >
-                    <?php echo $team['name']; ?>
-                </option>
-                <?php endif; ?>
-                <?php endforeach; ?>
+           
             </select>
           
             <br>
             <br>
           
-
+            <input type='hidden' name='team_id' 
+                   value='<?php echo $teamID; ?>' />
             <input type='hidden' name='action'
-                   value='update_player' />
+                   value='add player' />
             <input type='hidden' name='playerID' 
                    value='<?php echo $playerID; ?>' />
 
-                   <input type='submit' value='Update player' />
+                   <input type='submit' value='add player' />
                 <input type='hidden' name='condition' value='new' />
                 <br>
                 <br>

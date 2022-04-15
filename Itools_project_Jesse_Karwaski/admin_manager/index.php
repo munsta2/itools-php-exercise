@@ -1,7 +1,6 @@
 <?php 
 require_once('../model/database.php');
 require('../model/login_db.php');
-// Start session
 session_start();
 
 if (isSet($_POST['action'])) {
@@ -16,7 +15,6 @@ else if (isSet($_SESSION['user'])) {
 else {
     $action = 'login page';
 }
-
 
 
 

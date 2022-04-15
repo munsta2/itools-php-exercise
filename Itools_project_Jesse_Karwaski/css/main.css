@@ -37,6 +37,10 @@ header h2 {
 
   font-size: 200%;
 }
+h2 {
+  border-bottom: 3px solid black;
+}
+
 header h1,h2 {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
@@ -49,7 +53,7 @@ header{
   border-bottom: 3px solid black;
   padding-top: 20px;
   padding-left: 20px;
-  padding-bottom: 160px;
+  padding-bottom: 80px;
   /* width:  1000px; */
 }
 
@@ -270,4 +274,41 @@ color: #cacad3;
 
 .error {
   color: red;
+}
+
+
+
+/* Aside  */
+
+
+main aside {
+  width: 400px;
+  
+  float: left;
+  padding-left: 0px;
+padding-bottom: 20px;
+}
+
+
+
+/* Section */
+
+main section  {
+ 
+	width: 500px;
+	float: right;
+	padding-left: 0px;
+	padding-right: 10px;
+	padding-bottom: 20px;
+}
+main section h2, main section p {
+  text-align:left;
+}
+
+main section img {
+  height: 64px;
+  width: 64px;
+}
+main section p {
+  font-size: 85%;
 }

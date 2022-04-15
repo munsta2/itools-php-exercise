@@ -1,12 +1,13 @@
 <?php include '../view/header.php'; ?>
 <head>
     <link rel="stylesheet" href="teams.css">
+    <link rel="stylesheet" href="../css/table.css">
 </head>
 
 
 
 <main>
-
+    <img src="<?php echo  $team_logo?>" alt="">
     <table>
         <thead>
         <th>Name</th>

@@ -11,8 +11,7 @@
 <nav>
     <ul>
         <li><a href="../edit_player_manager/">Search player and edit</a></li>
-        <li><a href="../add_player_manager/">Add player to rooster</a></li>
-        <li><a href="">view roosters and delete</a></li>
+        <li><a href="../add_player_manager/">Add and remove players to roster</a></li>
         <li><a href="../add_games_manager/">Add games to schedule</a></li>
     </ul>
 

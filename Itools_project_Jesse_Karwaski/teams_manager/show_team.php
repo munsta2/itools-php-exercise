@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="teams.css">
+    <link rel="stylesheet" href="../css/table.css">
 </head>
 <main>
     

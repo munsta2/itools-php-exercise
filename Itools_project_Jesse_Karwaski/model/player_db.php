@@ -44,8 +44,37 @@ function update_player(
         }
  }
 
+ function add_player( $playerID ,$first_name, $last_name, 
+ $position, $weight, $height, $teamID) {
+
+    global $db;
+
+    $query = "INSERT INTO players VALUES
+    ('$playerID', '$teamID','$first_name', '$last_name', '$position', '$height', '$weight' )";
+
+        try{
+            $statement = $db->prepare($query);
+            $statement->execute();
+        } catch(PDOException $e) {
+            $error_message = $e->getMessage();
+            display_db_error($error_message);
+}
+ }
 
 
+function delete_player($playerID) {
+    global $db;
+
+    $query = "DELETE FROM players WHERE playerID = '$playerID'";
+
+    try{
+        $statement = $db->prepare($query);
+        $statement->execute();
+    } catch(PDOException $e) {
+        $error_message = $e->getMessage();
+        display_db_error($error_message);
+    }
+}
 
 
 

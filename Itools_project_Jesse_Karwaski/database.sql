@@ -31,7 +31,7 @@ INSERT INTO teams VALUES
 (2, 'Bulldogs', 'North Bay','/itools_project_Jesse_Karwaski/images/Bulldog-logo.webp'),
 (3, 'Steelers', 'Sault ste maire','/itools_project_Jesse_Karwaski/images/steelers-1.webp'),
 (4, 'All-Stars', 'Gta','/itools_project_Jesse_Karwaski/images/gtastars.logo_.webp'),
-(5, 'Longorns', 'Oakvile','/itools_project_Jesse_Karwaski/images/longhorns.webp'),
+(5, 'Longhorns', 'Oakvile','/itools_project_Jesse_Karwaski/images/longhorns.webp'),
 (6, 'Imperials', 'Sarnia','/itools_project_Jesse_Karwaski/images/Sarnia-Imperials-Logo-crown-CL.webp'),
 (7, 'Sooners', 'Ottawa','/itools_project_Jesse_Karwaski/images/ottawa-sooners-logo.webp'),
 (8, 'Phantom Raiders', 'Toronto','/itools_project_Jesse_Karwaski/images/Raiders.webp'),

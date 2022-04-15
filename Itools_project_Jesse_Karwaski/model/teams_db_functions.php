@@ -115,7 +115,7 @@ function update_team_stats() {
 
 function helper(int $wins, int $lose, int $pointAgint, int $pointfor, int $points, int $idNum){
     global $db;
-    $query2 = "UPDATE team_stats
+    $query = "UPDATE team_stats
         SET
         wins = $wins, 
         loses = $lose,
@@ -126,8 +126,8 @@ function helper(int $wins, int $lose, int $pointAgint, int $pointfor, int $point
     ";
 
     try{
-        $statement2 = $db->prepare($query2);
-        $statement2->execute();
+        $statement = $db->prepare($query);
+        $statement->execute();
     } catch(PDOException $e) {
         $error_message = $e->getMessage();
         display_db_error($error_message);

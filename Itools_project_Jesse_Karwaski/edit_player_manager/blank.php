@@ -11,6 +11,10 @@
             <label>&nbsp;</label>
             <input type="submit" value="Search"><br>
         </form>
+
+    <br>
+   
+    <a href="../admin_manager/">Back to Admin menu</a>
 </main>
 
 
